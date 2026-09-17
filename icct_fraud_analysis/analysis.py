@@ -8,7 +8,7 @@ import pandas as pd
 from data_processing import NUMERIC_FEATURES, load_data, missing_values, fraud_transactions
 
 
-def fraud_summary(data: pd.DataFrame) -> pd.DataFrame:
+def fraud_summary(data):
     """Summarize transaction count and fraud rate by transaction type."""
     summary = (
         data.groupby("type")
@@ -22,12 +22,12 @@ def fraud_summary(data: pd.DataFrame) -> pd.DataFrame:
     return summary.sort_values("fraud_rate", ascending=False)
 
 
-def numeric_summary(data: pd.DataFrame) -> pd.DataFrame:
+def numeric_summary(data):
     """Return descriptive statistics for the numeric transaction fields."""
     return data[NUMERIC_FEATURES].describe().T
 
 
-def plot_transaction_amounts(data: pd.DataFrame, output_path: str | Path) -> None:
+def plot_transaction_amounts(data, output_path):
     """Save a histogram of transaction amounts to a PNG file."""
     fig, ax = plt.subplots(figsize=(9, 5))
     ax.hist(data["amount"], bins=50)
@@ -39,7 +39,7 @@ def plot_transaction_amounts(data: pd.DataFrame, output_path: str | Path) -> Non
     plt.close(fig)
 
 
-def run_analysis(data_path: str | Path):
+def run_analysis(data_path):
     """Run core quality checks and exploratory summaries."""
     data = load_data(data_path)
     return {
