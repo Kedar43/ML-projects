@@ -1,17 +1,15 @@
 # Fraud Detection Analysis
 
-A refactored version of the original fraud-detection notebook, organized into reusable Python modules for analysis and experimentation.
+Python analysis of transaction-level fraud data, covering data preparation, exploratory analysis, outlier handling, and model evaluation.
 
 ## Scope
 
-The analysis works with transaction-level data containing transaction type, amount, account balances, and fraud labels. The original notebook explored the dataset, inspected missing values and class distribution, analyzed numerical features, and applied IQR-based outlier handling.
+The analysis works with transaction type, amount, account balances, and fraud labels. It includes missing-value checks, fraud summaries, numerical analysis, IQR-based outlier handling, and reusable analysis functions.
 
 ## Structure
 
-- `data_processing.py` contains reusable data-loading, validation, fraud-filtering, and outlier-processing functions.
-- `analysis.py` will contain exploratory analysis and visualizations.
-- `modeling.py` will contain model preparation and evaluation.
-- `main.py` will provide the runnable workflow.
+- `data_processing.py` contains data loading, validation, fraud filtering, and outlier-processing functions.
+- `analysis.py` contains exploratory analysis and visualizations.
 
 ## Technologies
 
