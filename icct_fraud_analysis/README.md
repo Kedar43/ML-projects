@@ -1,15 +1,16 @@
 # Fraud Detection Analysis
 
-Python analysis of transaction-level fraud data, covering data preparation, exploratory analysis, outlier handling, and model evaluation.
+A Python project for exploring transaction-level fraud data, preparing features, comparing baseline classification models, and evaluating fraud-detection performance.
 
 ## Scope
 
-The analysis works with transaction type, amount, account balances, and fraud labels. It includes missing-value checks, fraud summaries, numerical analysis, IQR-based outlier handling, and reusable analysis functions.
+The project covers data loading and quality checks, fraud-rate analysis by transaction type, numerical summaries, IQR-based outlier handling, model preparation, stratified train/test splitting, and comparison of Logistic Regression and Random Forest classifiers using fraud-detection metrics.
 
 ## Structure
 
-- `data_processing.py` contains data loading, validation, fraud filtering, and outlier-processing functions.
-- `analysis.py` contains exploratory analysis and visualizations.
+- `data_processing.py` contains data loading, quality checks, fraud filtering, and outlier-processing functions.
+- `analysis.py` contains exploratory analysis, fraud summaries, numerical summaries, and visualizations.
+- `modeling.py` contains feature preparation, train/test splitting, baseline model training, and model evaluation.
 
 ## Technologies
 
@@ -17,4 +18,4 @@ Python, Pandas, NumPy, Matplotlib, Seaborn, scikit-learn
 
 ## Data
 
-The dataset is not included in this repository. Place the CSV file locally and pass its path to the analysis workflow.
+The dataset is not included in this repository. Place the CSV file locally and pass its path to the analysis and modeling workflows.
