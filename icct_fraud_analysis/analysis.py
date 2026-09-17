@@ -5,7 +5,12 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from data_processing import NUMERIC_FEATURES, load_data, missing_values, fraud_transactions
+from .data_processing import (
+    NUMERIC_FEATURES,
+    load_data,
+    missing_values,
+    fraud_transactions,
+)
 
 
 def fraud_summary(data):
