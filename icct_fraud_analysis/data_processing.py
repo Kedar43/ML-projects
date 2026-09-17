@@ -1,7 +1,6 @@
-"""Data loading and preprocessing helpers for the fraud analysis sample."""
+"""Data loading and preprocessing helpers for the fraud analysis project."""
 
 from pathlib import Path
-from typing import Iterable, Tuple
 
 import numpy as np
 import pandas as pd
@@ -30,14 +29,14 @@ def fraud_transactions(data: pd.DataFrame) -> pd.DataFrame:
     return data.loc[data["isFraud"] == 1].copy()
 
 
-def outlier_bounds(values: pd.Series) -> Tuple[float, float]:
+def outlier_bounds(values: pd.Series) -> tuple[float, float]:
     """Calculate IQR-based lower and upper bounds for a numeric series."""
     q1, q3 = np.percentile(values.dropna(), [25, 75])
     iqr = q3 - q1
     return q1 - 1.5 * iqr, q3 + 1.5 * iqr
 
 
-def cap_outliers(data: pd.DataFrame, columns: Iterable[str]) -> pd.DataFrame:
+def cap_outliers(data: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
     """Cap extreme values in selected columns using IQR bounds.
 
     The input dataframe is copied so the original data remains unchanged.
