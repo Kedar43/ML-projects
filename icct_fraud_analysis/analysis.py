@@ -39,7 +39,7 @@ def plot_transaction_amounts(data: pd.DataFrame, output_path: str | Path) -> Non
     plt.close(fig)
 
 
-def run_analysis(data_path: str | Path) -> dict[str, object]:
+def run_analysis(data_path: str | Path):
     """Run core quality checks and exploratory summaries."""
     data = load_data(data_path)
     return {
