@@ -14,29 +14,29 @@ NUMERIC_FEATURES = [
 ]
 
 
-def load_data(path: str | Path) -> pd.DataFrame:
+def load_data(path: str | Path):
     """Load the fraud transaction dataset from a CSV file."""
     return pd.read_csv(path)
 
 
-def missing_values(data: pd.DataFrame) -> pd.Series:
+def missing_values(data):
     """Return the number of missing values in each column."""
     return data.isna().sum()
 
 
-def fraud_transactions(data: pd.DataFrame) -> pd.DataFrame:
+def fraud_transactions(data):
     """Return rows labelled as fraudulent."""
     return data.loc[data["isFraud"] == 1].copy()
 
 
-def outlier_bounds(values: pd.Series) -> tuple[float, float]:
+def outlier_bounds(values):
     """Calculate IQR-based lower and upper bounds for a numeric series."""
     q1, q3 = np.percentile(values.dropna(), [25, 75])
     iqr = q3 - q1
     return q1 - 1.5 * iqr, q3 + 1.5 * iqr
 
 
-def cap_outliers(data: pd.DataFrame, columns: list[str]) -> pd.DataFrame:
+def cap_outliers(data, columns):
     """Cap extreme values in selected columns using IQR bounds.
 
     The input dataframe is copied so the original data remains unchanged.
